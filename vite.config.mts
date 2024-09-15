@@ -5,6 +5,7 @@ import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 import { fileURLToPath, URL } from 'node:url';
+import path from 'node:path';
 
 export default defineConfig({
   plugins: [
@@ -28,7 +29,7 @@ export default defineConfig({
       deep: true,
     }),
     createSvgIconsPlugin({
-      iconDirs: ['resources/ts/assets/icons/svg'],
+      iconDirs: [path.resolve(process.cwd()), 'resources/ts/assets/icons/svg'],
       symbolId: 'icon-[dir]-[name]',
     }),
   ],
